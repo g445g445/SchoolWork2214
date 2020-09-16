@@ -105,7 +105,7 @@ public class ConcertTicket implements Comparable {
      */
     @Override
     public int compareTo(Object o) {
-        ConcertTicket ct = (ConcertTicket) o;
+        ConcertTicket ct = null; // (ConcertTicket) o;
         //in the line above replace "= null;" with the commented out code to fix the Web-Cat error.
         int result = 0;
         // compare by price

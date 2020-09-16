@@ -13,7 +13,7 @@ public class Wallet {
     private int size = 0;
 
     /**
-     * Add a concert ticket into the array
+     * Add a concert ticket into the array.
      *
      * @param ct a concert ticket being added to the wallet
      */
