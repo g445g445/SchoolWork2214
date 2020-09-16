@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
  * @author bebpo
  */
 public class WalletTest {
-    
+
     public WalletTest() {
     }
 
@@ -26,11 +26,18 @@ public class WalletTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        
         Wallet instance = new Wallet();
-        instance.add(ct);
+        ConcertTicket ct1, ct2;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+            ct1 = new ConcertTicket("Band 1", df.parse("09/20/2020"), 18.5);
+            ct2 = new ConcertTicket("Band 2", df.parse("09/30/2020"), 20);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            fail("Exception declaring ConcertTicket objects");
+        }
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -86,5 +93,5 @@ public class WalletTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }
