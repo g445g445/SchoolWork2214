@@ -53,8 +53,9 @@ public class Wallet {
 
     public ConcertTicket remove() {
         ConcertTicket ct;
-        ct = this.tickets[this.getSize()];
-        this.tickets[this.getSize()] = null;
+        ct = this.tickets[this.size -1];
+        this.tickets[this.size -1] = null;
+        this.size--;
         return ct;
     }
 }
