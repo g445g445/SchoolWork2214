@@ -14,10 +14,12 @@ import java.util.Stack;
  */
 public class DrawingUndoStackSimulation {
     private Stack<DrawingOp> myOpStack;
+    private Stack<DrawingOp> undone;
     
 
     public DrawingUndoStackSimulation() {
         myOpStack = new Stack<>();
+        undone = new Stack<>();
         runSimulation();
     }
 
@@ -30,10 +32,10 @@ public class DrawingUndoStackSimulation {
                 op = new DrawingOp("Draw Line");
                 break;
             case 1:
-                op = new DrawingOp("Draw Rectangle");    
+                op = new LineWidthOp("Change Line Width", 3);    
                 break;
             case 2:
-                op = new DrawingOp("Draw Oval");
+                op = new LineWidthOp("Change Line Width", 2);
                 break;
             case 3:
                 op = new DrawingOp("Draw Curve");
@@ -42,7 +44,7 @@ public class DrawingUndoStackSimulation {
                 op = new ColorOp("Change Line Color", "red");
                 break;
             case 5:
-                op = new ColorOp("Change Line Color", "blue");
+                op = new LineWidthOp("Change Line Width", 1);
                 break;
             case 6:
                 op =  new ColorOp("Change Fill Color", "yellow");
@@ -103,7 +105,6 @@ public class DrawingUndoStackSimulation {
         System.out.println("\t Printing stack: \n");
         // note that this collections-based for loop prints the collection,
         // but in bottom-to-top order. 
-        
         for (DrawingOp o : myOpStack) {
             System.out.println("\t\t" + o.toString());
         }
